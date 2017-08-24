@@ -5,6 +5,8 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
+const handleEvent = require('./handlers/handleEvent')
+
 app.set('port', (process.env.PORT || 5000))
 
 app.use(bodyParser.urlencoded({ extended: false }))
