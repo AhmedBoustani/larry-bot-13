@@ -49,6 +49,6 @@ function sendGenericMessage(sender) {
     })
 }
 
-export {
+module.exports = {
     sendGenericMessage
 }
