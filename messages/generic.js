@@ -1,3 +1,5 @@
+const request = require('request')
+
 const token = process.env.APP_ACCESS_TOKEN
 
 function sendGenericMessage(sender) {
