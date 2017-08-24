@@ -1,3 +1,5 @@
+const token = process.env.APP_ACCESS_TOKEN
+
 function sendGenericMessage(sender) {
     let messageData = {
 	    "attachment": {
