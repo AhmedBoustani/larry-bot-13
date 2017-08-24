@@ -9,18 +9,14 @@ const _ = require('./messages/generic')
 
 app.set('port', (process.env.PORT || 5000))
 
-// Process application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 
-// Process application/json
 app.use(bodyParser.json())
 
-// Index route
 app.get('/', function (req, res) {
-	res.send('Hello world, I am a chat bot')
+	res.send('Hello, I am Larry')
 })
 
-// for Facebook verification
 app.get('/webhook/', function (req, res) {
 	if (req.query['hub.verify_token'] === '651895af4c9eb95264ef9c9962fb7f4ca96b4f52') {
 		res.send(req.query['hub.challenge'])
@@ -41,7 +37,12 @@ app.post('/webhook/', function (req, res) {
 		    	continue
 		    }
 		    sendTextMessage(sender, 'Text received, echo: ' + text.substring(0, 200))
-	    }
+		}
+		if (event.postback) {
+			let text = JSON.stringify(event.postback)
+			sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
+			continue
+		}
     }
     res.sendStatus(200)
 })
