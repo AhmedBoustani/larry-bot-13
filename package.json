@@ -1,0 +1,20 @@
+{
+  "name": "larry",
+  "version": "0.0.1",
+  "description": "Messenger bot named Larry",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "messenger-bot",
+    "bot"
+  ],
+  "author": "Ahmed Amine Boustani",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "request": "^2.81.0"
+  }
+}
