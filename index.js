@@ -25,36 +25,12 @@ app.get('/webhook/', function (req, res) {
 })
 
 app.post('/webhook/', function (req, res) {
-    const messaging_events = req.body.entry[0].messaging
-    for (let i = 0; i < messaging_events.length; i++) {
-	    const event = req.body.entry[0].messaging[i]
-	    handleEvent(event)
+    const events = req.body.entry[0].messaging
+    for (let i = 0; i < events.length; i++) {
+	    handleEvent(events[i])
     }
     res.sendStatus(200)
 })
-
-const token = process.env.APP_ACCESS_TOKEN
-
-function sendTextMessage(sender, text) {
-    let messageData = { text:text }
-    request({
-	    url: 'https://graph.facebook.com/v2.6/me/messages',
-	    qs: {access_token:token},
-	    method: 'POST',
-		json: {
-		    recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-		    console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-		    console.log('Error: ', response.body.error)
-	    }
-    })
-}
-
-
 
 // Spin up the server
 app.listen(app.get('port'), function() {

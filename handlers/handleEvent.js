@@ -1,18 +1,15 @@
-const _ = require('../messages/generic')
+const handleMessage = require('./handleMessages')
+const message = require('../messages/index')
 
 const token = process.env.APP_ACCESS_TOKEN
 
 module.exports = (event) => {
     const sender = event.sender.id
     if (event.message && event.message.text) {
-        let text = event.message.text
-        if (text === 'Generic') {
-            _.sendGenericMessage(sender)
-            return
-        }
+        handleMessage(event.message.text, sender)
     }
     if (event.postback) {
         let text = JSON.stringify(event.postback)
-        sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
+        message.sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
     }
 }
