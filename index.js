@@ -5,8 +5,6 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
-const _ = require('./messages/generic')
-
 app.set('port', (process.env.PORT || 5000))
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -25,24 +23,10 @@ app.get('/webhook/', function (req, res) {
 })
 
 app.post('/webhook/', function (req, res) {
-    let messaging_events = req.body.entry[0].messaging
+    const messaging_events = req.body.entry[0].messaging
     for (let i = 0; i < messaging_events.length; i++) {
-	    let event = req.body.entry[0].messaging[i]
-	    let sender = event.sender.id
-	    if (event.message && event.message.text) {
-		    let text = event.message.text
-		    if (text === 'Generic') {
-				_.sendGenericMessage(sender)
-				sendTextMessage(sender, 'There')
-		    	continue
-		    }
-		    sendTextMessage(sender, 'Text received, echo: ' + text.substring(0, 200))
-		}
-		if (event.postback) {
-			let text = JSON.stringify(event.postback)
-			sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
-			continue
-		}
+	    const event = req.body.entry[0].messaging[i]
+	    handleEvent(event)
     }
     res.sendStatus(200)
 })
