@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
-import { sendGenericMessage } from './messages/generic'
+const _ = require('./messages/generic')
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -36,7 +36,7 @@ app.post('/webhook/', function (req, res) {
 	    if (event.message && event.message.text) {
 		    let text = event.message.text
 		    if (text === 'Generic') {
-				sendGenericMessage(sender)
+				_.sendGenericMessage(sender)
 				sendTextMessage(sender, 'There')
 		    	continue
 		    }
