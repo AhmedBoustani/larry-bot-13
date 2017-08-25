@@ -3,9 +3,9 @@ const message = require('../messages/index')
 
 module.exports = (event) => {
   const sender = event.sender.id
-  message.sendTextMessage(sender, `${event.sender}`)
   if (event.message && event.message.text) {
     handleMessage(event.message.text, sender)
+    console.log(event.sender)
   }
   if (event.postback) {
     let text = JSON.stringify(event.postback)
