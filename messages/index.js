@@ -27,5 +27,6 @@ function sendHelp(sender) {
 }
 
 module.exports = {
-    sendTextMessage
+    sendTextMessage,
+    sendHelp
 }
