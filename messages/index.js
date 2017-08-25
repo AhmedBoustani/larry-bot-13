@@ -23,7 +23,7 @@ function sendTextMessage(sender, text) {
 function sendHelp(sender) {
   const messageHelp = `Talk to Larry and let me know how I can make him a better helper.
   Features implement: Greeting, help`
-  sendTextMessage(sender, messageData)
+  sendTextMessage(sender, messageHelp)
 }
 
 module.exports = {
