@@ -21,7 +21,9 @@ function sendTextMessage(sender, text) {
 }
 
 function sendHelp(sender) {
-  const messageData = { 'text': 'Talk to Larry and tell me know how I can make him a better helper '}
+  const messageHelp = `Talk to Larry and let me know how I can make him a better helper.
+  Features implement: Greeting, help`
+  sendTextMessage(sender, messageData)
 }
 
 module.exports = {

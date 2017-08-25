@@ -9,6 +9,10 @@ module.exports = (text, sender) => {
     send.sendTextMessage(sender, stdlib.sendGreeting())
     return
   }
+  if (text === 'help') {
+    send.sendHelp()
+    return
+  }
   if (text === 'Generic') {
     generic.sendGenericMessage(sender)
     return
