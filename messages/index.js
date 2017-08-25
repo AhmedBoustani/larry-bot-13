@@ -29,7 +29,7 @@ Features implemented:
 }
 
 function notUnderstood(sender) {
-  const message = `Sorry I couldn't get that. To see what I can do, type help`
+  const message = `Sorry I couldn't get that. To see what I can do, send help`
   sendTextMessage(sender, message)
 }
 module.exports = {

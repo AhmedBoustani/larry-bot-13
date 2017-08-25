@@ -7,6 +7,7 @@ module.exports = (text, sender) => {
   const words = string.parse(text)
   if (stdlib.hasGreeting(words)) {
     send.sendTextMessage(sender, stdlib.sendGreeting())
+    send.sendTextMessage(sender, 'How can I help you?')
     return
   }
   if (text === 'help') {
