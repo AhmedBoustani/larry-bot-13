@@ -1,8 +1,7 @@
 'use strict'
-// 
+//
 const express = require('express')
 const bodyParser = require('body-parser')
-const request = require('request')
 const app = express()
 
 const handleEvent = require('./handlers/handleEvent')
@@ -25,11 +24,11 @@ app.get('/webhook/', function (req, res) {
 })
 
 app.post('/webhook/', function (req, res) {
-    const events = req.body.entry[0].messaging
-    for (let i = 0; i < events.length; i++) {
-	    handleEvent(events[i])
-    }
-    res.sendStatus(200)
+  const events = req.body.entry[0].messaging
+  for (let i = 0; i < events.length; i++) {
+    handleEvent(events[i])
+  }
+  res.sendStatus(200)
 })
 
 // Spin up the server

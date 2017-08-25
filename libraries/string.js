@@ -1,5 +1,5 @@
 function parse (text) {
-    return text.split(/,!:;./)
+  return text.split(/,!:;./)
 }
 
 module.exports = {
