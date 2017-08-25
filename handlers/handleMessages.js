@@ -10,7 +10,7 @@ module.exports = (text, sender) => {
     return
   }
   if (text === 'help') {
-    send.sendHelp()
+    send.sendHelp(sender)
     return
   }
   if (text === 'Generic') {

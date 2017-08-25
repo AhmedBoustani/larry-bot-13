@@ -8,7 +8,7 @@ function sendTextMessage(sender, text) {
 	    qs: { access_token: token },
 	    method: 'POST',
 		json: {
-		    recipient: { id:sender },
+		    recipient: { id: sender },
 			message: { text },
 		}
 	}, function(error, response, body) {
