@@ -17,4 +17,5 @@ module.exports = (text, sender) => {
     generic.sendGenericMessage(sender)
     return
   }
+  send.notUnderstood(sender)
 }

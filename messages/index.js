@@ -21,11 +21,17 @@ function sendTextMessage(sender, text) {
 }
 
 function sendHelp(sender) {
-  const messageHelp = `Talk to Larry and let me know how I can make him a better helper.
-  Features implement: Greeting, help`
+  const messageHelp =
+`Talk to Larry and let me know how I can make him a better helper.
+Features implemented:
+- Greeting`
   sendTextMessage(sender, messageHelp)
 }
 
+function notUnderstood(sender) {
+  const message = `Sorry I coudln't get that. To see what I can do, type help`
+  sendTextMessage(sender, message)
+}
 module.exports = {
     sendTextMessage,
     sendHelp
