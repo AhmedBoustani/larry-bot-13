@@ -3,7 +3,7 @@ const message = require('../messages/index')
 
 module.exports = (event) => {
   const sender = event.sender.id
-  sendTextMessage(sender, event.sender)
+  message.sendTextMessage(sender, event.sender)
   if (event.message && event.message.text) {
     handleMessage(event.message.text, sender)
   }
